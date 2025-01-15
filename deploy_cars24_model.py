@@ -5,7 +5,7 @@ import joblib
 
 st.title('Car Price prediction App')
 
-target_encode = joblib.load('target_encoder.joblib')
+target_encode = pickle.load(open("target_encoder.pkl", "rb"))
 
 # Define our encoding dictionary
 encode_dict = {
@@ -73,7 +73,7 @@ def model_pred(
         float(seats)
     ]]
 
-    scaler = joblib.load('scaler.joblib')
+    scaler = pickle.load(open("scaler.pkl", "rb"))
     # Scale the data
     data = scaler.transform(data)
         
